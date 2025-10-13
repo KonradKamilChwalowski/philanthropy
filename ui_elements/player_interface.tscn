@@ -1,0 +1,128 @@
+[gd_scene load_steps=2 format=3 uid="uid://3dfs5bx0l22j"]
+
+[ext_resource type="Script" uid="uid://8mlwmw4kbgrq" path="res://ui_elements/player_interface.gd" id="1_s2sgk"]
+
+[node name="PlayerInterface" type="Control"]
+custom_minimum_size = Vector2(900, 250)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 900.0
+offset_bottom = 250.0
+script = ExtResource("1_s2sgk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(900, 250)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(900, 125)
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 125.0
+theme_override_constants/separation = 0
+
+[node name="PLAYER_NUMBER_LABEL" type="Label" parent="MainContainer"]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "PLAYER_NUMBER_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="CHARACTER_POINTS_LABEL" type="Label" parent="MainContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "CHARACTER_POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MainContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+min_value = -6.0
+max_value = 6.0
+rounded = true
+editable = false
+scrollable = false
+tick_count = 13
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="CHARACTER_LABEL" type="Label" parent="MainContainer"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "CHARACTER_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ResourceContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(900, 125)
+layout_mode = 0
+offset_top = 125.0
+offset_right = 900.0
+offset_bottom = 250.0
+theme_override_constants/separation = 0
+
+[node name="MONEY_LABEL" type="Label" parent="ResourceContainer"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "MONEY_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MATERIALS_LABEL" type="Label" parent="ResourceContainer"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "MATERIALS_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SPACE_LABEL" type="Label" parent="ResourceContainer"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SPACE_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ENERGY_LABEL" type="Label" parent="ResourceContainer"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "ENERGY_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="WORKFORCE_LABEL" type="Label" parent="ResourceContainer"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "WORKFORCE_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HP_LABEL" type="Label" parent="ResourceContainer"]
+custom_minimum_size = Vector2(150, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "HP_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

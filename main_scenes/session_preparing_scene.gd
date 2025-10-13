@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var color_rect := $ColorRect
 @onready var panels_container = $HBoxContainer
 @onready var back_button = $BACK_BUTTON
 @onready var next_button = $NEXT_BUTTON
@@ -7,6 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	color_rect.color = GameManager.background_color
 	change_language()
 
 func change_language() -> void:

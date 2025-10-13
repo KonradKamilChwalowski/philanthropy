@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://quxstuer4mdw"]
+
+[ext_resource type="Script" uid="uid://qdcy5bvphei0" path="res://cards/resource_card.gd" id="1_j8mbh"]
+[ext_resource type="Texture2D" uid="uid://dirtwfcl37mpw" path="res://art/cards_pictures/money.png" id="2_g5j5k"]
+
+[node name="ResourceCard" type="Control"]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_j8mbh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="NAME_LABEL" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 0
+offset_top = 5.0
+offset_right = 200.0
+offset_bottom = 30.0
+text = "NAME_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardPicture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 35.0
+offset_right = 190.0
+offset_bottom = 215.0
+texture = ExtResource("2_g5j5k")
+
+[node name="VALUE_LABEL" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 0
+offset_top = 269.0
+offset_right = 200.0
+offset_bottom = 294.0
+text = "VALUE_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1

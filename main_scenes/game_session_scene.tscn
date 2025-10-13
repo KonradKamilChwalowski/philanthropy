@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://b58beayruwwex"]
+
+[ext_resource type="Script" uid="uid://clomrai6015rd" path="res://main_scenes/game_session_scene.gd" id="1_6fyyn"]
+[ext_resource type="PackedScene" uid="uid://3dfs5bx0l22j" path="res://ui_elements/player_interface.tscn" id="2_cu6fm"]
+[ext_resource type="Texture2D" uid="uid://cd27btl0qh4i5" path="res://art/icons/languages/english.png" id="3_uqg4r"]
+[ext_resource type="Texture2D" uid="uid://dcgd61ryf3myc" path="res://art/icons/languages/polish.png" id="4_0l4tl"]
+
+[node name="GameSessionScene" type="Node2D"]
+script = ExtResource("1_6fyyn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.6902411, 0.4580229, 1, 1)
+
+[node name="InterfaceContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1920, 250)
+offset_right = 1920.0
+offset_bottom = 250.0
+
+[node name="PlayerInterface" parent="InterfaceContainer" instance=ExtResource("2_cu6fm")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="PlayerInterface2" parent="InterfaceContainer" instance=ExtResource("2_cu6fm")]
+layout_mode = 2
+size_flags_horizontal = 6
+player_number = 2
+
+[node name="CardContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1100, 350)
+offset_left = 405.0
+offset_top = 554.0
+offset_right = 1505.0
+offset_bottom = 904.0
+theme_override_constants/separation = 25
+
+[node name="LanguageContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(256, 256)
+offset_left = 1630.0
+offset_top = 935.0
+offset_right = 2162.0
+offset_bottom = 1451.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="EnglishButton" type="TextureButton" parent="LanguageContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_uqg4r")
+
+[node name="PolishButton" type="TextureButton" parent="LanguageContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_0l4tl")
+
+[connection signal="pressed" from="LanguageContainer/EnglishButton" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="LanguageContainer/PolishButton" to="." method="_on_polish_button_pressed"]
