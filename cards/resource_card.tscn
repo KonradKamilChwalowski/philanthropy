@@ -41,6 +41,7 @@ layout_mode = 0
 offset_top = 269.0
 offset_right = 200.0
 offset_bottom = 294.0
+theme_override_font_sizes/font_size = 32
 text = "VALUE_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1

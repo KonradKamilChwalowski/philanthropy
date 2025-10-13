@@ -27,7 +27,7 @@ theme_override_constants/separation = 0
 [node name="PLAYER_NUMBER_LABEL" type="Label" parent="MainContainer"]
 custom_minimum_size = Vector2(300, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "PLAYER_NUMBER_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -39,7 +39,7 @@ layout_mode = 2
 [node name="CHARACTER_POINTS_LABEL" type="Label" parent="MainContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "CHARACTER_POINTS"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -59,7 +59,7 @@ ticks_position = 3
 [node name="CHARACTER_LABEL" type="Label" parent="MainContainer"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "CHARACTER_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -76,7 +76,7 @@ theme_override_constants/separation = 0
 [node name="MONEY_LABEL" type="Label" parent="ResourceContainer"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "MONEY_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -85,7 +85,7 @@ autowrap_mode = 3
 [node name="MATERIALS_LABEL" type="Label" parent="ResourceContainer"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "MATERIALS_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -94,7 +94,7 @@ autowrap_mode = 3
 [node name="SPACE_LABEL" type="Label" parent="ResourceContainer"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "SPACE_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -103,7 +103,7 @@ autowrap_mode = 3
 [node name="ENERGY_LABEL" type="Label" parent="ResourceContainer"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "ENERGY_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -112,7 +112,7 @@ autowrap_mode = 3
 [node name="WORKFORCE_LABEL" type="Label" parent="ResourceContainer"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "WORKFORCE_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -121,7 +121,7 @@ autowrap_mode = 3
 [node name="HP_LABEL" type="Label" parent="ResourceContainer"]
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "HP_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1

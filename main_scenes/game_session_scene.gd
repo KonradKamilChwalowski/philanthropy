@@ -62,6 +62,7 @@ func _on_english_button_pressed() -> void:
 
 func _on_polish_button_pressed() -> void:
 	LanguageManager.set_language("pl")
+	change_language()
 
 func _on_new_round_button_pressed() -> void:
 	new_round()

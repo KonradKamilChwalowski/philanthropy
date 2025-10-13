@@ -10,22 +10,23 @@ var random_value: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	name_label.text = LanguageManager.return_text("CARD_NAMES", resource_type)
+	random_value = 1
 	match resource_type:
 		"MONEY":
 			card_picture.texture = load(card_picture_folder_path.path_join("money.png"))
 			random_value = int(randi() % 5 + 5)
 		"MATERIALS":
 			card_picture.texture = load(card_picture_folder_path.path_join("materials.png"))
-			random_value = int(randi() % 3) + 2
+			#random_value = int(randi() % 3) + 2
 		"SPACE":
 			card_picture.texture = load(card_picture_folder_path.path_join("space.png"))
-			random_value = int(randi() % 3) + 2
+			#random_value = int(randi() % 3) + 2
 		"ENERGY":
 			card_picture.texture = load(card_picture_folder_path.path_join("energy.png"))
-			random_value = int(randi() % 3) + 2
+			#random_value = int(randi() % 3) + 2
 		"WORKFORCE":
 			card_picture.texture = load(card_picture_folder_path.path_join("workforce.png"))
-			random_value = int(randi() % 3) + 2
+			#random_value = int(randi() % 3) + 2
 	value_label.text = LanguageManager.return_text("CARD_NAMES", "VALUE") + str(random_value)
 
 func change_language() -> void:
