@@ -10,11 +10,9 @@ extends Node2D
 
 func _ready() -> void:
 	color_rect.color = GameManager.background_color
-	change_language()
-	draw_new_cards()
 	for dice in dice_container.get_children():
 		dice_array.append(dice)
-	throw_dices()
+	new_round()
 
 func change_language() -> void:
 	for interface in interface_contrainer.get_children():
@@ -22,7 +20,7 @@ func change_language() -> void:
 	for card in card_container.get_children():
 		card.change_language()
 	new_round_button.text = LanguageManager.return_text("GAME_SESSION_SCENE", "NEW_ROUND_BUTTON")
-	
+	new_round_button.text += str(GameManager.current_round)
 
 func draw_new_cards() -> void:
 	for child in card_container.get_children():
@@ -52,7 +50,11 @@ func throw_dices() -> void:
 		else:
 			dice.label.text = "!"
 
-
+func new_round() -> void:
+	GameManager.current_round += 1
+	change_language()
+	draw_new_cards()
+	throw_dices()
 
 func _on_english_button_pressed() -> void:
 	LanguageManager.set_language("eng")
@@ -60,8 +62,6 @@ func _on_english_button_pressed() -> void:
 
 func _on_polish_button_pressed() -> void:
 	LanguageManager.set_language("pl")
-	change_language()
 
 func _on_new_round_button_pressed() -> void:
-	draw_new_cards()
-	throw_dices()
+	new_round()

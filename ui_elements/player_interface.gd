@@ -29,7 +29,7 @@ func update_resources() -> void:
 	change_language()
 	player_number_label.text += str(player_number)
 	character_points_label.text += str(GameManager.players[0][player_number-1])
-	if GameManager.current_round < 3:
+	if GameManager.current_round < 4:
 		character_label.text += "???"
 	else:
 		character_label.text += str(GameManager.players[1][player_number-1])
