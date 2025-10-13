@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck1x03lfs5w2q"]
+
+[ext_resource type="Script" uid="uid://dj74n6n6ao6wc" path="res://ui_elements/simple_player_creation_panel.gd" id="1_edfbw"]
+
+[node name="simple_player_creation_panel" type="Control"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1320.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_edfbw")
+
+[node name="HIDE_BUTTON" type="Button" parent="."]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 40
+toggle_mode = true
+text = "HIDE_BUTTON"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_top = 125.0
+offset_right = 600.0
+offset_bottom = 165.0
+
+[node name="PLAYER_NUMBER_LABEL" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "PLAYER_NUMBER_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PlayerCharacterLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HONEST_TYPE_BUTTON" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "HONEST_TYPE_BUTTON"
+autowrap_mode = 3
+
+[node name="FLEXIBLE_TYPE_BUTTON" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "FLEXIBLE_TYPE_BUTTON"
+autowrap_mode = 3
+
+[node name="RUTHLESS_TYPE_BUTTON" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "RUTHLESS_TYPE_BUTTON"
+autowrap_mode = 3
+
+[connection signal="pressed" from="HIDE_BUTTON" to="." method="_on_hide_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/HONEST_TYPE_BUTTON" to="." method="_on_honest_type_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/FLEXIBLE_TYPE_BUTTON" to="." method="_on_flexible_type_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RUTHLESS_TYPE_BUTTON" to="." method="_on_ruthless_type_button_pressed"]

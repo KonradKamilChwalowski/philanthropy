@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxc76oy2t88jk"]
+
+[ext_resource type="Texture2D" uid="uid://cd27btl0qh4i5" path="res://art/icons/languages/english.png" id="1_01hx6"]
+[ext_resource type="Script" uid="uid://cixjfhcjhdb43" path="res://main_scenes/main_menu_scene.gd" id="1_x8k3x"]
+[ext_resource type="Texture2D" uid="uid://dcgd61ryf3myc" path="res://art/icons/languages/polish.png" id="2_x8k3x"]
+
+[node name="MainMenuScene" type="Node2D"]
+script = ExtResource("1_x8k3x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.6902411, 0.4580229, 1, 1)
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+offset_left = 185.0
+offset_top = 150.0
+offset_right = 585.0
+offset_bottom = 920.0
+
+[node name="TUTORIAL_BUTTON" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+disabled = true
+text = "TUTORIAL_BUTTON"
+
+[node name="SIMPLE_MODE_BUTTON" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "SIMPLE_MODE_BUTTON"
+
+[node name="FULL_MODE_BUTTON" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+disabled = true
+text = "FULL_MODE_BUTTON"
+
+[node name="CUSTOM_MODE_BUTTON" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+disabled = true
+text = "CUSTOM_MODE_BUTTON"
+
+[node name="OPTIONS_BUTTON" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+disabled = true
+text = "OPTIONS_BUTTON"
+
+[node name="EXIT_BUTTON" type="Button" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "EXIT_BUTTON"
+
+[node name="LanguageContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(256, 256)
+offset_left = 1628.0
+offset_top = 63.0
+offset_right = 2144.0
+offset_bottom = 579.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="EnglishButton" type="TextureButton" parent="LanguageContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_01hx6")
+
+[node name="PolishButton" type="TextureButton" parent="LanguageContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_x8k3x")
+
+[connection signal="pressed" from="ButtonsContainer/SIMPLE_MODE_BUTTON" to="." method="_on_simple_mode_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/EXIT_BUTTON" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="LanguageContainer/EnglishButton" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="LanguageContainer/PolishButton" to="." method="_on_polish_button_pressed"]

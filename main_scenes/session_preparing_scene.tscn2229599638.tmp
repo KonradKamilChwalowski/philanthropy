@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://iyr02c51mc0v"]
+
+[ext_resource type="Script" uid="uid://bryyjljoxd8xw" path="res://main_scenes/session_preparing_scene.gd" id="1_0hesu"]
+[ext_resource type="PackedScene" uid="uid://ck1x03lfs5w2q" path="res://ui_elements/simple_player_creation_panel.tscn" id="2_67wh3"]
+[ext_resource type="Texture2D" uid="uid://cd27btl0qh4i5" path="res://art/icons/languages/english.png" id="2_lwfed"]
+[ext_resource type="Texture2D" uid="uid://dcgd61ryf3myc" path="res://art/icons/languages/polish.png" id="3_67wh3"]
+
+[node name="session_preparing_scene" type="Node2D"]
+script = ExtResource("1_0hesu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.6902411, 0.4580229, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 272.0
+offset_top = 257.0
+offset_right = 1476.0
+offset_bottom = 297.0
+theme_override_constants/separation = 100
+
+[node name="simple_player_creation_panel" parent="HBoxContainer" instance=ExtResource("2_67wh3")]
+layout_mode = 2
+
+[node name="simple_player_creation_panel2" parent="HBoxContainer" instance=ExtResource("2_67wh3")]
+layout_mode = 2
+player_number = 2
+
+[node name="LanguageContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(256, 256)
+offset_left = 1628.0
+offset_top = 63.0
+offset_right = 2144.0
+offset_bottom = 579.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="EnglishButton" type="TextureButton" parent="LanguageContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_lwfed")
+
+[node name="PolishButton" type="TextureButton" parent="LanguageContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_67wh3")
+
+[node name="BACK_BUTTON" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 125)
+offset_left = 165.0
+offset_top = 857.0
+offset_right = 565.0
+offset_bottom = 982.0
+theme_override_font_sizes/font_size = 40
+text = "BACK_BUTTON"
+
+[node name="NEXT_BUTTON" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 125)
+offset_left = 1428.0
+offset_top = 855.0
+offset_right = 1828.0
+offset_bottom = 980.0
+theme_override_font_sizes/font_size = 40
+text = "NEXT_BUTTON"
+
+[connection signal="pressed" from="LanguageContainer/EnglishButton" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="LanguageContainer/PolishButton" to="." method="_on_polish_button_pressed"]
+[connection signal="pressed" from="BACK_BUTTON" to="." method="_on_back_button_pressed"]
