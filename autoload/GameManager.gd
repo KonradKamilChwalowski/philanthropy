@@ -9,7 +9,7 @@ func _ready() -> void:
 	# GOLD; RESOURCES; HP
 	players.append([0, 0])
 	players.append(["???", "???"])
-	players.append([1000, 1000])
+	players.append([0, 0])
 	for i in 4:
 		players.append([0, 0])
 	players.append([3, 3])
