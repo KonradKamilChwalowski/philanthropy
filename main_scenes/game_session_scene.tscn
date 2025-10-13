@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b58beayruwwex"]
+[gd_scene load_steps=6 format=3 uid="uid://b58beayruwwex"]
 
 [ext_resource type="Script" uid="uid://clomrai6015rd" path="res://main_scenes/game_session_scene.gd" id="1_6fyyn"]
 [ext_resource type="PackedScene" uid="uid://3dfs5bx0l22j" path="res://ui_elements/player_interface.tscn" id="2_cu6fm"]
+[ext_resource type="PackedScene" uid="uid://cy6woamx24gkg" path="res://cards/dice.tscn" id="3_0l4tl"]
 [ext_resource type="Texture2D" uid="uid://cd27btl0qh4i5" path="res://art/icons/languages/english.png" id="3_uqg4r"]
 [ext_resource type="Texture2D" uid="uid://dcgd61ryf3myc" path="res://art/icons/languages/polish.png" id="4_0l4tl"]
 
@@ -26,6 +27,44 @@ size_flags_horizontal = 6
 [node name="PlayerInterface2" parent="InterfaceContainer" instance=ExtResource("2_cu6fm")]
 layout_mode = 2
 size_flags_horizontal = 6
+player_number = 2
+
+[node name="DiceContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 920.0
+offset_top = 337.0
+offset_right = 960.0
+offset_bottom = 377.0
+
+[node name="Dice1" parent="DiceContainer" instance=ExtResource("3_0l4tl")]
+layout_mode = 0
+offset_left = -691.0
+offset_top = 26.0
+offset_right = -691.0
+offset_bottom = 26.0
+
+[node name="Dice2" parent="DiceContainer" instance=ExtResource("3_0l4tl")]
+layout_mode = 0
+offset_left = -299.0
+offset_top = 38.0
+offset_right = -299.0
+offset_bottom = 38.0
+
+[node name="Dice3" parent="DiceContainer" instance=ExtResource("3_0l4tl")]
+layout_mode = 0
+offset_left = 304.0
+offset_top = -2.0
+offset_right = 304.0
+offset_bottom = -2.0
+player_number = 2
+
+[node name="Dice4" parent="DiceContainer" instance=ExtResource("3_0l4tl")]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 24.0
+offset_right = 700.0
+offset_bottom = 24.0
 player_number = 2
 
 [node name="CardContainer" type="HBoxContainer" parent="."]
@@ -55,5 +94,15 @@ texture_normal = ExtResource("3_uqg4r")
 layout_mode = 2
 texture_normal = ExtResource("4_0l4tl")
 
+[node name="NEW_ROUND_BUTTON" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 125)
+offset_left = 787.0
+offset_top = 945.0
+offset_right = 1187.0
+offset_bottom = 1070.0
+theme_override_font_sizes/font_size = 30
+text = "NEW_ROUND_BUTTON"
+
 [connection signal="pressed" from="LanguageContainer/EnglishButton" to="." method="_on_english_button_pressed"]
 [connection signal="pressed" from="LanguageContainer/PolishButton" to="." method="_on_polish_button_pressed"]
+[connection signal="pressed" from="NEW_ROUND_BUTTON" to="." method="_on_new_round_button_pressed"]

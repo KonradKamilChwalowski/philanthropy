@@ -27,3 +27,7 @@ func _ready() -> void:
 			card_picture.texture = load(card_picture_folder_path.path_join("workforce.png"))
 			random_value = int(randi() % 3) + 2
 	value_label.text = LanguageManager.return_text("CARD_NAMES", "VALUE") + str(random_value)
+
+func change_language() -> void:
+	name_label.text = LanguageManager.return_text("CARD_NAMES", resource_type)
+	value_label.text = LanguageManager.return_text("CARD_NAMES", "VALUE") + str(random_value)

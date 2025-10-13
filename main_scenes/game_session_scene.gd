@@ -4,15 +4,25 @@ extends Node2D
 @onready var interface_contrainer := $InterfaceContainer
 @onready var card_container := $CardContainer
 @onready var resource_card_scene := preload("res://cards/resource_card.tscn")
+@onready var dice_container := $DiceContainer
+@onready var dice_array: Array = []
+@onready var new_round_button := $NEW_ROUND_BUTTON
 
 func _ready() -> void:
 	color_rect.color = GameManager.background_color
 	change_language()
 	draw_new_cards()
+	for dice in dice_container.get_children():
+		dice_array.append(dice)
+	throw_dices()
 
 func change_language() -> void:
 	for interface in interface_contrainer.get_children():
 		interface.update_resources()
+	for card in card_container.get_children():
+		card.change_language()
+	new_round_button.text = LanguageManager.return_text("GAME_SESSION_SCENE", "NEW_ROUND_BUTTON")
+	
 
 func draw_new_cards() -> void:
 	for child in card_container.get_children():
@@ -35,7 +45,12 @@ func draw_new_cards() -> void:
 		card_container.add_child(card)
 
 func throw_dices() -> void:
-	pass
+	for dice in dice_array:
+		var random_value = randi() % 6
+		if random_value != 0:
+			dice.label.text = str(int(random_value))
+		else:
+			dice.label.text = "!"
 
 
 
@@ -46,3 +61,7 @@ func _on_english_button_pressed() -> void:
 func _on_polish_button_pressed() -> void:
 	LanguageManager.set_language("pl")
 	change_language()
+
+func _on_new_round_button_pressed() -> void:
+	draw_new_cards()
+	throw_dices()
