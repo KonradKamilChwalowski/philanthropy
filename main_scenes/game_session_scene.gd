@@ -6,7 +6,7 @@ extends Node2D
 @onready var resource_card_scene := preload("res://cards/resource_card.tscn")
 @onready var dice_container := $DiceContainer
 @onready var dice_array: Array = []
-@onready var choose_card_label: Label = $DiceContainer/ChooseCardLabel
+@onready var todo_label: Label = $ToDoLabel
 @onready var new_round_button := $NEW_ROUND_BUTTON
 signal card_is_chosen(card)
 
@@ -24,9 +24,9 @@ func new_round() -> void:
 	change_language()
 	draw_new_cards()
 	throw_dices()
-	print(number_of_cards_to_choose)
 	if number_of_cards_to_choose > 0:
-		choose_cards()
+		await choose_cards()
+	check_for_negotiations()
 
 func change_language() -> void:
 	for interface in interface_contrainer.get_children():
@@ -60,16 +60,12 @@ func draw_new_cards() -> void:
 
 func throw_dices() -> void:
 	for dice in dice_array:
-		var random_value = randi() % 6
-		if random_value != 0:
-			dice.label.text = str(int(random_value))
-		else:
-			dice.label.text = "!"
-			dice.is_special = true
+		dice.throw_me()
+		if dice.dice_value == 0:
 			number_of_cards_to_choose += 1
 
 func choose_cards() -> void:
-	choose_card_label.visible = true
+	todo_label.visible = true
 	for card in card_container.get_children():
 		card.button.disabled = false
 	new_round_button.disabled = true
@@ -79,7 +75,7 @@ func choose_cards() -> void:
 	for dice in dices:
 		if dice is Dice:
 			if dice.is_special:
-				choose_card_label.text = (
+				todo_label.text = (
 					LanguageManager.return_text("GAME_SESSION_SCENE", "PLAYER_NUMBER_LABEL")
 					+ str(dice.player_number)
 					+ ": "
@@ -89,10 +85,46 @@ func choose_cards() -> void:
 				dice.is_special = false
 	number_of_cards_to_choose = 0
 	
-	choose_card_label.visible = false
+	todo_label.visible = false
 	for card in card_container.get_children():
 		card.button.disabled = true
 	new_round_button.disabled = false
+
+func check_for_negotiations() -> void:
+	var cards_candidates := []
+	for i in 5:
+		cards_candidates.append([false,false])
+	for dice in dice_array:
+		cards_candidates[dice.dice_value-1][dice.player_number-1] = true
+	var t_index: int = -1
+	for card in cards_candidates:
+		t_index += 1
+		if card[0] == true:
+			if card[1] == true:
+				negotiate(t_index)
+			else:
+				add_resources_to_player(t_index, 0)
+		else:
+			if card[1] == true:
+				add_resources_to_player(t_index, 1)
+
+func negotiate(card_id: int) -> void:
+	#todo_label.visible = true
+	#new_round_button.disabled = true
+	pass
+
+func add_resources_to_player(card_id: int, player_id: int) -> void:
+	match card_container.get_children()[card_id].resource_type:
+		"MONEY":
+			GameManager.players[2][player_id] += card_container.get_children()[card_id].random_value
+		"MATERIALS":
+			GameManager.players[3][player_id] += card_container.get_children()[card_id].random_value
+		"SPACE":
+			GameManager.players[4][player_id] += card_container.get_children()[card_id].random_value
+		"ENERGY":
+			GameManager.players[5][player_id] += card_container.get_children()[card_id].random_value
+		"WORKFORCE":
+			GameManager.players[6][player_id] += card_container.get_children()[card_id].random_value
 
 func _on_english_button_pressed() -> void:
 	LanguageManager.set_language("eng")

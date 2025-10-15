@@ -68,15 +68,16 @@ offset_right = 700.0
 offset_bottom = 24.0
 player_number = 2
 
-[node name="ChooseCardLabel" type="Label" parent="DiceContainer"]
+[node name="ToDoLabel" type="Label" parent="."]
 visible = false
-layout_mode = 0
-offset_left = -197.0
-offset_top = 193.0
-offset_right = 285.0
-offset_bottom = 235.0
+offset_left = 731.0
+offset_top = 460.0
+offset_right = 1213.0
+offset_bottom = 502.0
 theme_override_font_sizes/font_size = 30
-text = "PLAYER_NUMBER: CHOOSE_CARD"
+text = "TODO_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CardContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1100, 350)
@@ -128,6 +129,87 @@ offset_right = 1187.0
 offset_bottom = 1070.0
 theme_override_font_sizes/font_size = 30
 text = "NEW_ROUND_BUTTON"
+
+[node name="P1ButtonContainer" type="VBoxContainer" parent="."]
+offset_top = 460.0
+offset_right = 200.0
+offset_bottom = 976.0
+
+[node name="REPORT_BUTTON" type="Button" parent="P1ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "REPORT_BUTTON"
+
+[node name="SPLIT_BUTTON" type="Button" parent="P1ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "SPLIT_BUTTON"
+
+[node name="ESCAPE_BUTTON" type="Button" parent="P1ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "ESCAPE_BUTTON"
+
+[node name="BETRAYAL_BUTTON" type="Button" parent="P1ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "BETRAYAL_BUTTON"
+
+[node name="ENFORCEMENT_BUTTON" type="Button" parent="P1ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "ENFORCEMENT_BUTTON"
+
+[node name="P2ButtonContainer" type="VBoxContainer" parent="."]
+offset_left = 1670.0
+offset_top = 460.0
+offset_right = 1920.0
+offset_bottom = 976.0
+
+[node name="REPORT_BUTTON" type="Button" parent="P2ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "REPORT_BUTTON"
+
+[node name="SPLIT_BUTTON" type="Button" parent="P2ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "SPLIT_BUTTON"
+
+[node name="ESCAPE_BUTTON" type="Button" parent="P2ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "ESCAPE_BUTTON"
+
+[node name="BETRAYAL_BUTTON" type="Button" parent="P2ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "BETRAYAL_BUTTON"
+
+[node name="ENFORCEMENT_BUTTON" type="Button" parent="P2ButtonContainer"]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "ENFORCEMENT_BUTTON"
 
 [connection signal="pressed" from="LanguageContainer/EnglishButton" to="." method="_on_english_button_pressed"]
 [connection signal="pressed" from="LanguageContainer/PolishButton" to="." method="_on_polish_button_pressed"]
