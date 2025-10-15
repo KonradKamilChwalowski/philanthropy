@@ -24,6 +24,7 @@ func new_round() -> void:
 	change_language()
 	draw_new_cards()
 	throw_dices()
+	print(number_of_cards_to_choose)
 	if number_of_cards_to_choose > 0:
 		choose_cards()
 
@@ -85,6 +86,8 @@ func choose_cards() -> void:
 					+ LanguageManager.return_text("GAME_SESSION_SCENE", "CHOOSE_CARD_LABEL"))
 				var selected_card = await card_is_chosen
 				dice.label.text = str(selected_card.card_id + 1)
+				dice.is_special = false
+	number_of_cards_to_choose = 0
 	
 	choose_card_label.visible = false
 	for card in card_container.get_children():
