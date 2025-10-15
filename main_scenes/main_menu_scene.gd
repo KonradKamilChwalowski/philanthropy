@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var color_rect := $ColorRect
 @onready var buttons_container := $ButtonsContainer
-@onready var game_session_settings_scene_path: String = "res://main_scenes/game_session_settings_scene.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +14,7 @@ func change_language() -> void:
 
 
 func _on_simple_mode_button_pressed() -> void:
-	get_tree().change_scene_to_file(game_session_settings_scene_path)
+	get_tree().change_scene_to_file(GameManager.game_session_settings_scene_path)
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()

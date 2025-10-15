@@ -1,8 +1,9 @@
-extends Control
+class_name Dice extends Control 
 
 @onready var color_rect := $ColorRect
 @export var player_number: int = 1
 @onready var label := $Label
+var is_special: bool = false
 
 
 func _ready() -> void:

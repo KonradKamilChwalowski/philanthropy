@@ -4,8 +4,6 @@ extends Node2D
 @onready var panels_container = $HBoxContainer
 @onready var back_button = $BACK_BUTTON
 @onready var next_button = $NEXT_BUTTON
-@onready var game_session_settings_scene_path: String = "res://main_scenes/game_session_settings_scene.tscn"
-@onready var game_session_scene_path: String = "res://main_scenes/game_session_scene.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,8 +28,8 @@ func _on_polish_button_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file(game_session_settings_scene_path)
+	get_tree().change_scene_to_file(GameManager.game_session_settings_scene_path)
 
 func _on_next_button_pressed() -> void:
 	if GameManager.players[1][0] != "???" and GameManager.players[1][1] != "???":
-		get_tree().change_scene_to_file(game_session_scene_path)
+		get_tree().change_scene_to_file(GameManager.game_session_scene_path)

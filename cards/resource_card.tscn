@@ -45,3 +45,11 @@ theme_override_font_sizes/font_size = 32
 text = "VALUE_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+disabled = true
+flat = true

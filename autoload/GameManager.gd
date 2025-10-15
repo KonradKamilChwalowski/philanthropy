@@ -1,5 +1,10 @@
 extends Node
 
+@onready var main_menu_scene_path: String = "res://main_scenes/main_menu_scene.tscn"
+@onready var game_session_settings_scene_path: String = "res://main_scenes/game_session_settings_scene.tscn"
+@onready var session_preparing_scene_path: String = "res://main_scenes/session_preparing_scene.tscn"
+@onready var game_session_scene_path: String = "res://main_scenes/game_session_scene.tscn"
+
 @onready var background_color := Color(0.7,0.7,0)
 var players: Array = []
 var current_round: int = 0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b58beayruwwex"]
+[gd_scene load_steps=7 format=3 uid="uid://b58beayruwwex"]
 
 [ext_resource type="Script" uid="uid://clomrai6015rd" path="res://main_scenes/game_session_scene.gd" id="1_6fyyn"]
 [ext_resource type="PackedScene" uid="uid://3dfs5bx0l22j" path="res://ui_elements/player_interface.tscn" id="2_cu6fm"]
 [ext_resource type="PackedScene" uid="uid://cy6woamx24gkg" path="res://cards/dice.tscn" id="3_0l4tl"]
 [ext_resource type="Texture2D" uid="uid://cd27btl0qh4i5" path="res://art/icons/languages/english.png" id="3_uqg4r"]
 [ext_resource type="Texture2D" uid="uid://dcgd61ryf3myc" path="res://art/icons/languages/polish.png" id="4_0l4tl"]
+[ext_resource type="PackedScene" uid="uid://quxstuer4mdw" path="res://cards/resource_card.tscn" id="4_ge1q1"]
 
 [node name="GameSessionScene" type="Node2D"]
 script = ExtResource("1_6fyyn")
@@ -32,10 +33,10 @@ player_number = 2
 [node name="DiceContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 920.0
-offset_top = 337.0
-offset_right = 960.0
-offset_bottom = 377.0
+offset_left = 928.0
+offset_top = 267.0
+offset_right = 968.0
+offset_bottom = 307.0
 
 [node name="Dice1" parent="DiceContainer" instance=ExtResource("3_0l4tl")]
 layout_mode = 0
@@ -67,6 +68,16 @@ offset_right = 700.0
 offset_bottom = 24.0
 player_number = 2
 
+[node name="ChooseCardLabel" type="Label" parent="DiceContainer"]
+visible = false
+layout_mode = 0
+offset_left = -197.0
+offset_top = 193.0
+offset_right = 285.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 30
+text = "PLAYER_NUMBER: CHOOSE_CARD"
+
 [node name="CardContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1100, 350)
 offset_left = 405.0
@@ -74,6 +85,21 @@ offset_top = 554.0
 offset_right = 1505.0
 offset_bottom = 904.0
 theme_override_constants/separation = 25
+
+[node name="ResourceCard" parent="CardContainer" instance=ExtResource("4_ge1q1")]
+layout_mode = 2
+
+[node name="ResourceCard2" parent="CardContainer" instance=ExtResource("4_ge1q1")]
+layout_mode = 2
+
+[node name="ResourceCard3" parent="CardContainer" instance=ExtResource("4_ge1q1")]
+layout_mode = 2
+
+[node name="ResourceCard4" parent="CardContainer" instance=ExtResource("4_ge1q1")]
+layout_mode = 2
+
+[node name="ResourceCard5" parent="CardContainer" instance=ExtResource("4_ge1q1")]
+layout_mode = 2
 
 [node name="LanguageContainer" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(256, 256)

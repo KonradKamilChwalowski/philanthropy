@@ -4,6 +4,8 @@ extends Control
 @onready var name_label := $NAME_LABEL
 @onready var card_picture := $CardPicture
 @onready var value_label := $VALUE_LABEL
+@onready var button := $Button
+var card_id: int = 0
 var card_picture_folder_path: String = "res://art/cards_pictures/"
 var random_value: int
 
