@@ -2,7 +2,7 @@ extends Node
 
 var ui_localization_path: String = "res://data/ui_localization.json"
 var translations: Dictionary = {}   # {"en": {...}, "pl": {...}}
-var current_language: String = "eng"
+var current_language: String = "pl"
 
 
 func _ready() -> void:

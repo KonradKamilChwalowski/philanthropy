@@ -7,6 +7,8 @@ extends Control
 @onready var character_points_label := $MainContainer/VBoxContainer/CHARACTER_POINTS_LABEL
 @onready var character_label := $MainContainer/CHARACTER_LABEL
 @onready var resource_container := $ResourceContainer
+@onready var slider := $MainContainer/VBoxContainer/HSlider
+@onready var notification_label := $NOTIFICATION_LABEL
 
 func _ready() -> void:
 	match player_number:

@@ -7,11 +7,11 @@ custom_minimum_size = Vector2(900, 250)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 900.0
-offset_bottom = 250.0
+offset_bottom = 300.0
 script = ExtResource("1_s2sgk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(900, 250)
+custom_minimum_size = Vector2(900, 300)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -57,6 +57,7 @@ ticks_on_borders = true
 ticks_position = 3
 
 [node name="CHARACTER_LABEL" type="Label" parent="MainContainer"]
+visible = false
 custom_minimum_size = Vector2(150, 125)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -66,6 +67,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="ResourceContainer" type="HBoxContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(900, 125)
 layout_mode = 0
 offset_top = 125.0
@@ -126,3 +128,14 @@ text = "HP_LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="NOTIFICATION_LABEL" type="Label" parent="."]
+visible = false
+custom_minimum_size = Vector2(900, 50)
+layout_mode = 0
+offset_top = 249.0
+offset_right = 40.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
