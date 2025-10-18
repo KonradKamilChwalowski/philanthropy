@@ -1,4 +1,4 @@
-extends Node2D
+class_name GameSessionScene extends Node2D
 
 @onready var color_rect := $ColorRect
 @onready var interface_contrainer := $InterfaceContainer
@@ -8,9 +8,15 @@ extends Node2D
 @onready var dice_array: Array = []
 @onready var todo_label: Label = $ToDoLabel
 @onready var new_round_button := $NEW_ROUND_BUTTON
+@onready var p1_button_container := $P1ButtonContainer
+@onready var p2_button_container := $P2ButtonContainer
+
 signal card_is_chosen(card)
+signal players_have_chosen
 
 var number_of_cards_to_choose: int = 0
+var p1_negotiation_choice: int = -3
+var p2_negotiation_choice: int = -3
 
 func _ready() -> void:
 	color_rect.color = GameManager.background_color
@@ -20,6 +26,7 @@ func _ready() -> void:
 	new_round()
 
 func new_round() -> void:
+	todo_label.visible = false
 	GameManager.current_round += 1
 	change_language()
 	draw_new_cards()
@@ -33,6 +40,10 @@ func change_language() -> void:
 		interface.update_resources()
 	for card in card_container.get_children():
 		card.change_language()
+	for button in p1_button_container.get_children():
+		button.change_language()
+	for button in p2_button_container.get_children():
+		button.change_language()
 	new_round_button.text = LanguageManager.return_text("GAME_SESSION_SCENE", "NEW_ROUND_BUTTON")
 	new_round_button.text += str(GameManager.current_round)
 
@@ -82,6 +93,7 @@ func choose_cards() -> void:
 					+ LanguageManager.return_text("GAME_SESSION_SCENE", "CHOOSE_CARD_LABEL"))
 				var selected_card = await card_is_chosen
 				dice.label.text = str(selected_card.card_id + 1)
+				dice.dice_value = str(selected_card.card_id + 1)
 				dice.is_special = false
 	number_of_cards_to_choose = 0
 	
@@ -96,22 +108,30 @@ func check_for_negotiations() -> void:
 		cards_candidates.append([false,false])
 	for dice in dice_array:
 		cards_candidates[dice.dice_value-1][dice.player_number-1] = true
-	var t_index: int = -1
+	print(cards_candidates)
+	var t_card_index: int = -1
 	for card in cards_candidates:
-		t_index += 1
+		t_card_index += 1
 		if card[0] == true:
 			if card[1] == true:
-				negotiate(t_index)
+				negotiate(t_card_index)
 			else:
-				add_resources_to_player(t_index, 0)
+				add_resources_to_player(t_card_index, 0)
 		else:
 			if card[1] == true:
-				add_resources_to_player(t_index, 1)
+				add_resources_to_player(t_card_index, 1)
 
 func negotiate(card_id: int) -> void:
-	#todo_label.visible = true
-	#new_round_button.disabled = true
-	pass
+	todo_label.visible = true
+	todo_label.text = LanguageManager.return_text("GAME_SESSION_SCENE", "NEGOTIATION_FOR_CARD") + str(card_id + 1)
+	new_round_button.disabled = true
+	for button in p1_button_container.get_children():
+		button.disabled = false
+	for button in p2_button_container.get_children():
+		button.disabled = false
+	await players_have_chosen
+	todo_label.text = "WYBRANO"
+	
 
 func add_resources_to_player(card_id: int, player_id: int) -> void:
 	match card_container.get_children()[card_id].resource_type:
